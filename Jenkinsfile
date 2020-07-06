@@ -1,10 +1,7 @@
 stage 'CI'
-node ('master'){
-
+node (){
+	
     checkout scm
-
-    //git branch: 'jenkins2-course', 
-    //    url: 'https://github.com/g0t4/solitaire-systemjs-course'
 
     // pull dependencies from npm
     sh 'npm install'
@@ -15,10 +12,9 @@ node ('master'){
     stash name: 'everything', 
           excludes: 'test-results/**', 
           includes: '**'
-          
 }
 
-node ('dell-xps-15'){
+node (){
     sh 'ls'
     sh 'rm -rf *'
     unstash 'everything'
